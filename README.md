@@ -1,1 +1,6 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+- WorqOut - simple workout tracker log
+  **Tech stack:**
+
+* Next JS
+* Node JS
+* Apollo Graphql
