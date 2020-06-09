@@ -8,10 +8,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       justifyContent: "center",
-      padding: "15px 28px",
+      padding: "15px",
     },
     vector: {
-      marginTop: "30px",
       width: 200,
       height: 150,
     },

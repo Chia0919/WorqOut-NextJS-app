@@ -1,0 +1,163 @@
+[
+  {
+    "type": "Leg",
+    "name": "Barbell Squat",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Leg Extensions",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Leg Press",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Lying Leg Curl",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Seated Leg Curl",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Dumbbell Walking Lunges",
+    "checked": false
+  },
+  {
+    "type": "Leg",
+
+    "name": "Roamanian Deadlift",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Barbell Bench Press",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Icline Bench Press",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Decline Bench Press",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Dumbbell Fly",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Cabel Crossover",
+    "checked": false
+  },
+  {
+    "type": "Chest",
+    "name": "Chest Dips",
+    "checked": false
+  },
+  {
+    "type": "Back",
+    "name": "Deadlifts",
+    "checked": false
+  },
+  {
+    "type": "Back",
+    "name": "Barbell Row",
+    "checked": false
+  },
+  {
+    "type": "Back",
+    "name": "Seated Cable Row",
+    "checked": false
+  },
+  {
+    "type": "Back",
+    "name": "T-Bar Row",
+    "checked": false
+  },
+  {
+    "type": "Shoulder",
+    "name": "Arnold Press",
+    "checked": false
+  },
+  {
+    "type": "Shoulder",
+    "name": "Dumbbell Front Raise",
+    "checked": false
+  },
+  {
+    "type": "Shoulder",
+    "name": "Dumbbell Lateral Raise",
+    "checked": false
+  },
+  {
+    "type": "Shoulder",
+    "name": "Dumbbell RearDelt Raise",
+    "checked": false
+  },
+  {
+    "type": "Shoulder",
+    "name": "Face Pull",
+    "checked": false
+  },
+  {
+    "type": "Bicep",
+    "name": "Dumbbell Bicep Curl",
+    "checked": false
+  },
+  {
+    "type": "Bicep",
+    "name": "Dumbbell Hammer Curl",
+    "checked": false
+  },
+  {
+    "type": "Bicep",
+    "name": "Barbell Bicep Curl",
+    "checked": false
+  },
+  {
+    "type": "Bicep",
+    "name": "EZ Bar Curl",
+    "checked": false
+  },
+  {
+    "type": "Bicep",
+    "name": "Bicep Curl Machine",
+    "checked": false
+  },
+  {
+    "type": "Tricep",
+    "name": "Rope Pushdown",
+    "checked": false
+  },
+  {
+    "type": "Tricep",
+    "name": "Overhead Cable Triceps Extension",
+    "checked": false
+  },
+  {
+    "type": "Tricep",
+    "name": "Triceps Extension Machine",
+    "checked": false
+  },
+  {
+    "type": "Tricep",
+    "name": "Dumbbell Triceps Kickback",
+    "checked": false
+  }
+]

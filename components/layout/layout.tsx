@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme: Theme) =>
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
       },
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -59,7 +62,12 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
+    toolbar: {
+      minHeight: "50px",
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
+    },
     drawerPaper: {
       width: drawerWidth,
       backgroundColor: "#f0f2ff",
@@ -67,6 +75,9 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
+      [theme.breakpoints.down("sm")]: {
+        padding: "0",
+      },
     },
     avatar: {
       width: "155px",

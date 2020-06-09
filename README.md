@@ -1,4 +1,4 @@
-- WorqOut - simple workout tracker log
+# WorqOut - simple workout tracker log
 
 **Tech stack:**
 

@@ -59,12 +59,24 @@ const useStyles = makeStyles((theme) => ({
     borderBottomRightRadius: "30%",
     borderBottomLeftRadius: "30%",
     borderTop: "0",
+    [theme.breakpoints.down("sm")]: {
+      height: "35vh",
+      borderBottomRightRadius: "20%",
+      borderBottomLeftRadius: "20%",
+    },
   },
   fab: {
     position: "fixed",
     bottom: "16px",
     right: "16px",
     background: "#040c2c",
+  },
+  card: {
+    padding: "12px",
+    margin: "10px",
+  },
+  addButton: {
+    width: "100%",
   },
 }));
 export default useStyles;

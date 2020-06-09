@@ -1,57 +1,34 @@
-import React from 'react'
-
-import Layout from '../components/layout/layout'
-import { EmptyMsg } from '../components/message/EmptyMsg'
-import { Wrapper } from '../components/wrapper/wrapper'
-import useStyles from '../components/styles/useStyles'
-import Typography from '@material-ui/core/Typography'
 import {
+  Avatar,
+  Fab,
+  List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Fab,
-  List,
 } from '@material-ui/core'
-import Folder from '@material-ui/icons/Folder'
 import NoteAdd from '@material-ui/icons/NoteAdd'
-import NavigationIcon from '@material-ui/icons/Navigation'
+import Link from 'next/link'
+import React from 'react'
+import Layout from '../components/layout/layout'
+import useStyles from '../components/styles/useStyles'
+import { ContentWrapper, Wrapper } from '../components/wrapper/wrapper'
+
 export default function Workout() {
   const classes = useStyles({})
 
   return (
     <Layout module="Workouts">
       <Wrapper>
-        <div className={classes.radiusWrapper}>
-          <div
-            style={{
-              // textAlign: 'center',
-              justifyContent: 'center',
-              width: '100%',
-            }}
-          >
-            <div
-              style={{
-                // flex: 1, textAlign: 'right',
-                color: 'white',
-              }}
-            ></div>
-            <Typography
-              variant="h4"
-              style={{
-                color: 'white',
-                fontWeight: 600,
-                paddingTop: '15px',
-                textAlign: 'center',
-              }}
-            >
-              My Workout Plan
-            </Typography>
-          </div>
-        </div>
+        <ContentWrapper
+          header="My Workout Plan"
+          onclick={() => alert('back')}
+        />
         <List>
-          <ListItem button dense style={{ background: '#f0f2ff' }}>
+          <ListItem button dense style={{ background: 'white' }}>
             <ListItemIcon>
-              <NoteAdd />
+              <Avatar>
+                <NoteAdd />
+              </Avatar>
             </ListItemIcon>
             <ListItemText
               primaryTypographyProps={{
@@ -68,9 +45,11 @@ export default function Workout() {
             />
           </ListItem>
         </List>
-        <Fab className={classes.fab}>
-          <NoteAdd />
-        </Fab>
+        <Link href="/workout/add">
+          <Fab className={classes.fab}>
+            <NoteAdd />
+          </Fab>
+        </Link>
       </Wrapper>
     </Layout>
   )
