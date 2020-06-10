@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     form: {
-      flexGrow: 1,
       background: "#040c2c",
       color: "white",
       [theme.breakpoints.up("sm")]: {
@@ -54,6 +53,9 @@ const useStyles = makeStyles((theme: Theme) =>
         position: "fixed",
         width: "100%",
         top: 0,
+      },
+      "& .MuiOutlinedInput-input": {
+        padding: "4px",
       },
     },
     menuButton: {
@@ -154,8 +156,9 @@ export function FormWrapper({ header, onclick, children }: ContentProps) {
       <main
         style={{
           background: "#f0f2ff",
-          height: "100vh",
+          // height: "100vh",
           padding: "6px",
+          flexGrow: 1,
           color: "#040c2c",
         }}
       >

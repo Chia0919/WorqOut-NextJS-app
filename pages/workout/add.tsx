@@ -12,10 +12,12 @@ import TextField from '@material-ui/core/TextField'
 import FitnessCenter from '@material-ui/icons/FitnessCenter'
 import Assignment from '@material-ui/icons/Assignment'
 import InputAdornment from '@material-ui/core/InputAdornment'
+import Divider from '@material-ui/core/Divider'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import MenuItem from '@material-ui/core/MenuItem'
 import Today from '@material-ui/icons/Today'
+import Delete from '@material-ui/icons/Delete'
 import Notes from '@material-ui/icons/Notes'
 import { daysOfWeeks, IAction } from '../../helpers/common'
 import Button from '@material-ui/core/Button'
@@ -36,7 +38,7 @@ interface IAddForm {
   exercises: any
   exercisesSelected: any
 }
-export default function AddForm() {
+export default function AddWorkoutForm() {
   const classes = useStyles({})
   const [open, setOpen] = useState(false)
   const [muscle, setMuscle] = useState('All')
@@ -89,7 +91,7 @@ export default function AddForm() {
           <Grid container justify="flex-start">
             <Grid item xs={12} md={3}>
               <Card variant="outlined" className={classes.card}>
-                <TextField
+                {/* <TextField
                   id="input-with-icon-textfield"
                   label="Workout Plan Name"
                   required
@@ -102,7 +104,7 @@ export default function AddForm() {
                       </InputAdornment>
                     ),
                   }}
-                />
+                /> */}
                 <Grid container justify="flex-start">
                   <Grid
                     item
@@ -174,7 +176,71 @@ export default function AddForm() {
                 ) : null}
                 <div>
                   {state.exercisesSelected?.map(el => (
-                    <p>{el.name}</p>
+                    <>
+                      <div
+                        style={{
+                          width: '100%',
+                          display: 'flex',
+                          background: '#040c2c',
+                          padding: '4px',
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          style={{ fontWeight: 500, color: 'white' }}
+                        >
+                          {el.name}
+                        </Typography>
+                        <div style={{ flex: 1, textAlign: 'right' }}>
+                          <Delete style={{ width: '20px', color: 'white' }} />
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          background: '#f0f2ff',
+                          color: '#040c2c',
+                          textAlign: 'center',
+                        }}
+                      >
+                        <Grid container justify="flex-start">
+                          <Grid item xs={1}>
+                            SET
+                          </Grid>
+                          <Grid item xs={3}></Grid>
+                          <Grid item xs={3}>
+                            KG
+                          </Grid>
+                          <Grid item xs={3}>
+                            REP
+                          </Grid>
+                          <Grid item xs={2}></Grid>
+                        </Grid>
+                      </div>
+                      <Grid container justify="flex-start">
+                        <Grid item xs={1}>
+                          1
+                        </Grid>
+                        <Grid item xs={3}></Grid>
+                        <Grid item xs={3}>
+                          <TextField
+                            id="input-with-icon-textfield"
+                            required
+                            type="number"
+                            variant="outlined"
+                          />
+                        </Grid>
+                        <Grid item xs={3}>
+                          <TextField
+                            id="input-with-icon-textfield"
+                            required
+                            type="number"
+                            variant="outlined"
+                          />
+                        </Grid>
+                        <Grid item xs={2}></Grid>
+                      </Grid>
+                      <Divider variant="fullWidth" />
+                    </>
                   ))}
                 </div>
                 <Button
