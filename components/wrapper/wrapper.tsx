@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme: Theme) =>
         minHeight: "54px",
       },
       [theme.breakpoints.down("sm")]: {
-        position: "fixed",
         width: "100%",
         top: 0,
       },
@@ -142,6 +141,7 @@ export function FormWrapper({ header, onclick, children }: ContentProps) {
           className={classes.menuButton}
           color="inherit"
           aria-label="menu"
+          onClick={() => onclick?.()}
         >
           <Close />
         </IconButton>

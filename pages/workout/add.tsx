@@ -19,6 +19,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Today from '@material-ui/icons/Today'
 import Delete from '@material-ui/icons/Delete'
 import Notes from '@material-ui/icons/Notes'
+import Close from '@material-ui/icons/Close'
 import { daysOfWeeks, IAction } from '../../helpers/common'
 import Button from '@material-ui/core/Button'
 import { EmptyMsg } from '../../components/message/EmptyMsg'
@@ -73,15 +74,19 @@ export default function AddWorkoutForm() {
     }
   }
   const [state, dispatch] = useReducer(reducer, initialState)
-  const TotalExerChecked = state.exercises.filter(v => v.checked === true)
-    .length
+  const TotalExerChecked = state.exercises.filter(
+    (v: any) => v.checked === true
+  ).length
   const handleAddExerc = () => {
-    const checkedArr = state.exercises.filter(v => v.checked === true)
+    const checkedArr = state.exercises.filter((v: any) => v.checked === true)
     dispatch({
       type: 'exercisesSelected',
       payload: checkedArr,
     })
     setOpen(false)
+  }
+  const handleAddSet = () => {
+    alert('ADD SET +1')
   }
   console.log(state, 'here')
   return (
@@ -91,20 +96,6 @@ export default function AddWorkoutForm() {
           <Grid container justify="flex-start">
             <Grid item xs={12} md={3}>
               <Card variant="outlined" className={classes.card}>
-                {/* <TextField
-                  id="input-with-icon-textfield"
-                  label="Workout Plan Name"
-                  required
-                  fullWidth
-                  margin="dense"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <Assignment />
-                      </InputAdornment>
-                    ),
-                  }}
-                /> */}
                 <Grid container justify="flex-start">
                   <Grid
                     item
@@ -175,7 +166,7 @@ export default function AddWorkoutForm() {
                   <EmptyMsg title=" Add exercises to your workout " />
                 ) : null}
                 <div>
-                  {state.exercisesSelected?.map(el => (
+                  {state.exercisesSelected?.map((el: any) => (
                     <>
                       <div
                         style={{
@@ -237,9 +228,20 @@ export default function AddWorkoutForm() {
                             variant="outlined"
                           />
                         </Grid>
-                        <Grid item xs={2}></Grid>
+                        <Grid item xs={2} style={{ textAlign: 'right' }}>
+                          <Close style={{ height: 'none' }} />
+                        </Grid>
                       </Grid>
                       <Divider variant="fullWidth" />
+                      <div style={{ textAlign: 'center' }}>
+                        <Button
+                          color="secondary"
+                          disableElevation
+                          onClick={handleAddSet}
+                        >
+                          Add Set
+                        </Button>
+                      </div>
                     </>
                   ))}
                 </div>

@@ -12,8 +12,9 @@ import React from 'react'
 import Layout from '../components/layout/layout'
 import useStyles from '../components/styles/useStyles'
 import { ContentWrapper, Wrapper } from '../components/wrapper/wrapper'
+import { withApollo } from '../lib/apollo'
 
-export default function Workout() {
+function Workout() {
   const classes = useStyles({})
 
   return (
@@ -54,3 +55,4 @@ export default function Workout() {
     </Layout>
   )
 }
+export default withApollo({ ssr: true })(Workout)

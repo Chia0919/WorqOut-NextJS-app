@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: "12px",
     },
     dialogContent: {
-      background: "#f0f2ff",
       padding: "12px",
     },
     button: {

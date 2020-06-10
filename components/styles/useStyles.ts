@@ -77,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
   addButton: {
     width: "100%",
+    marginTop: "30px",
   },
 }));
 export default useStyles;
