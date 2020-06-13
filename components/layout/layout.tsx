@@ -206,7 +206,6 @@ export default function Layout({ children, window, module }: LayoutProps) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <CssBaseline />
-
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
@@ -241,6 +240,7 @@ export default function Layout({ children, window, module }: LayoutProps) {
           </div>
         </Toolbar>
       </AppBar>
+
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">

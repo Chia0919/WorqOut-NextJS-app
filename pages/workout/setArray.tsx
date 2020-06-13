@@ -1,11 +1,10 @@
-import React from 'react'
-import { useFieldArray, Controller } from 'react-hook-form'
-import Close from '@material-ui/icons/Close'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
+import Close from '@material-ui/icons/Close'
+import React from 'react'
+import { Controller, useFieldArray } from 'react-hook-form'
 
 export const SetArray = (props: any) => {
   const { nestIndex, control, register } = props
@@ -20,21 +19,6 @@ export const SetArray = (props: any) => {
         console.log('set', nestIndex)
         return (
           <>
-            {/* <div key={item.id} style={{ marginLeft: 20 }}>
-              <label>Nested Array:</label>
-              <input
-                name={`getExerciseArray[${nestIndex}].set[${k}].set`}
-                ref={register()}
-                defaultValue={item.set}
-                style={{ marginRight: '25px' }}
-              />
-
-              <input
-                name={`getExerciseArray[${nestIndex}].set[${k}].kg`}
-                ref={register()}
-                defaultValue={item.kg}
-              />
-            </div> */}
             <Grid container justify="flex-start" key={item.id}>
               <Grid item xs={1}>
                 {/* {k + 1} */}
@@ -47,7 +31,6 @@ export const SetArray = (props: any) => {
                   variant="outlined"
                   disabled
                   inputRef={register({})}
-                  // style={{ display: 'none' }}
                 />
               </Grid>
               <Grid item xs={3}></Grid>

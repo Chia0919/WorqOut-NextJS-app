@@ -22,7 +22,7 @@ export default function ActionDialog(props: Props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Delete Workout Plan?</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Delete Workout Plan</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Are you sure you want to delete ?

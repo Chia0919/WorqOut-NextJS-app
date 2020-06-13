@@ -16,7 +16,13 @@ import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import FitnessCenter from '@material-ui/icons/FitnessCenter'
 import Today from '@material-ui/icons/Today'
-import React, { ChangeEvent, Reducer, useReducer, useState } from 'react'
+import React, {
+  ChangeEvent,
+  Reducer,
+  useReducer,
+  useState,
+  useEffect,
+} from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import ExecDialog from '../../components/dialog/ExecDialog'
 import Layout from '../../components/layout/layout'
@@ -56,19 +62,12 @@ function AddWorkoutForm() {
   const handleChange = (event: ChangeEvent<{ value: unknown }>) => {
     setMuscle(event.target.value as string)
   }
-  // useEffect(() => {
-  //   const execData: any = exercisesList.filter(v => v.type === muscle)
-  //   setExerArr(execData)
-  // }, [muscle])
-  // const exercisesWithChecked = exercisesList.map(el => {
-  //   ;(el.checked as any) = false
-  //   return el
-  // })
 
   const initialState: ILocalState = {
     exercises: execJson,
     exercisesSelected: [],
   }
+
   const reducer: Reducer<ILocalState, IAction> = (state, action) => {
     switch (action.type) {
       case 'reset':
@@ -78,6 +77,10 @@ function AddWorkoutForm() {
     }
   }
   const [state, dispatch] = useReducer(reducer, initialState)
+  // useEffect(() => {
+  //   const execData: any = state.exercises.filter(v => v.type === muscle)
+  //   dispatch({ type: 'exercises', payload: execData })
+  // }, [muscle])
   const getExerciseArray = state.exercisesSelected?.map(v => v)
   console.log(getExerciseArray)
   const defaultValues = {
@@ -242,84 +245,6 @@ function AddWorkoutForm() {
                     <ExerciseArray
                       {...{ control, register, getExerciseArray, getValues }}
                     />{' '}
-                    {/* {state.exercisesSelected?.map((el: any) => (
-                      <>
-                        <div
-                          style={{
-                            width: '100%',
-                            display: 'flex',
-                            background: '#040c2c',
-                            padding: '4px',
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
-                            style={{ fontWeight: 500, color: 'white' }}
-                          >
-                            {el.name}
-                          </Typography>
-                          <div style={{ flex: 1, textAlign: 'right' }}>
-                            <Delete style={{ width: '20px', color: 'white' }} />
-                          </div>
-                        </div>
-                        <div
-                          style={{
-                            background: '#f0f2ff',
-                            color: '#040c2c',
-                            textAlign: 'center',
-                          }}
-                        >
-                          <Grid container justify="flex-start">
-                            <Grid item xs={1}>
-                              SET
-                            </Grid>
-                            <Grid item xs={3}></Grid>
-                            <Grid item xs={3}>
-                              KG
-                            </Grid>
-                            <Grid item xs={3}>
-                              REP
-                            </Grid>
-                            <Grid item xs={2}></Grid>
-                          </Grid>
-                        </div>
-                        <Grid container justify="flex-start">
-                          <Grid item xs={1}>
-                            1
-                          </Grid>
-                          <Grid item xs={3}></Grid>
-                          <Grid item xs={3}>
-                            <TextField
-                              id="input-with-icon-textfield"
-                              required
-                              type="number"
-                              variant="outlined"
-                            />
-                          </Grid>
-                          <Grid item xs={3}>
-                            <TextField
-                              id="input-with-icon-textfield"
-                              required
-                              type="number"
-                              variant="outlined"
-                            />
-                          </Grid>
-                          <Grid item xs={2} style={{ textAlign: 'right' }}>
-                            <Close style={{ height: 'none' }} />
-                          </Grid>
-                        </Grid>
-                        <Divider variant="fullWidth" />
-                        <div style={{ textAlign: 'center' }}>
-                          <Button
-                            color="secondary"
-                            disableElevation
-                            onClick={handleAddSet}
-                          >
-                            Add Set
-                          </Button>
-                        </div>
-                      </>
-                    ))} */}
                   </div>
 
                   <Button
@@ -349,7 +274,7 @@ function AddWorkoutForm() {
                       value={muscle}
                       onChange={handleChange}
                     >
-                      <MenuItem value="All">All</MenuItem>
+                      <MenuItem value="All">Select Muscle Part</MenuItem>
                       <MenuItem value={'Chest'}>Chest</MenuItem>
                       <MenuItem value={'Back'}>Back</MenuItem>
                       <MenuItem value={'Bicep'}>Bicep</MenuItem>
