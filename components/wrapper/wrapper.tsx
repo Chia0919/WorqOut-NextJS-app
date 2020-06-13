@@ -149,7 +149,7 @@ export function FormWrapper({ header, onclick, children }: ContentProps) {
         <Typography variant="h6" className={classes.title}>
           {header}
         </Typography>
-        <Button color="inherit" form="submit-form">
+        <Button color="inherit" type="submit" form="submit-form">
           Save
         </Button>
       </Toolbar>
