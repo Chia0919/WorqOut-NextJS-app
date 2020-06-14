@@ -1,31 +1,19 @@
 import {
+  Card,
+  CardContent,
+  Grid,
+  Typography,
   useMediaQuery,
   useTheme,
-  Grid,
-  Link,
-  Fab,
-  Card,
-  List,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-  GridListTileBar,
-  GridListTile,
-  IconButton,
-  ListSubheader,
-  GridList,
 } from '@material-ui/core'
-import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Footer from '../components/footer/Footer'
 import Layout from '../components/layout/layout'
 import { EmptyMsg } from '../components/message/EmptyMsg'
-import { Wrapper } from '../components/wrapper/wrapper'
-import axios from 'axios'
-import useStyles from '../components/styles/useStyles'
-import SearchInput from '../components/search/SearchInput'
-import Add from '@material-ui/icons/Add'
 import Search from '../components/search/Search'
+import useStyles from '../components/styles/useStyles'
+import { Wrapper } from '../components/wrapper/wrapper'
 
 export default function FoodNutrition() {
   const theme = useTheme()
@@ -35,7 +23,6 @@ export default function FoodNutrition() {
   const classes = useStyles({})
 
   const [responseData, setResponseData] = useState()
-  // const [search, setSearch] = useState('Chicken')
 
   useEffect(() => {
     axios({
@@ -60,8 +47,7 @@ export default function FoodNutrition() {
       })
   }, [])
   console.log(responseData)
-  const [searchValue, setSearchValue] = useState('')
-  const search = searchValue => {
+  const search = (searchValue: any) => {
     axios({
       method: 'GET',
       url: 'https://edamam-food-and-grocery-database.p.rapidapi.com/parser',

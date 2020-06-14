@@ -16,13 +16,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import FitnessCenter from '@material-ui/icons/FitnessCenter'
 import Today from '@material-ui/icons/Today'
-import React, {
-  ChangeEvent,
-  Reducer,
-  useReducer,
-  useState,
-  useEffect,
-} from 'react'
+import { useRouter } from 'next/router'
+import React, { ChangeEvent, Reducer, useReducer, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import ExecDialog from '../../components/dialog/ExecDialog'
 import Layout from '../../components/layout/layout'
@@ -35,7 +30,6 @@ import daysOfWeek from '../../helpers/daysOfWeek.json'
 import execJson from '../../helpers/exercisesList.json'
 import { withApollo } from '../../lib/apollo'
 import ExerciseArray from './ExerciseArray'
-import { useRouter } from 'next/router'
 
 interface ILocalState {
   exercises: any

@@ -14,6 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import FitnessCenter from '@material-ui/icons/FitnessCenter'
 import RestaurantMenu from '@material-ui/icons/RestaurantMenu'
+import Person from '@material-ui/icons/Person'
 
 import MenuIcon from '@material-ui/icons/Menu'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -161,6 +162,7 @@ export default function Layout({ children, window, module }: LayoutProps) {
     { label: 'Dasboard', path: '/dashboard', icon: <Dashboard /> },
     { label: 'Workouts', path: '/workout', icon: <FitnessCenter /> },
     { label: 'Food Nutrition', path: '/nutrition', icon: <RestaurantMenu /> },
+    { label: 'User Profile', path: '/profile', icon: <Person /> },
   ]
   const drawer = (
     <div>

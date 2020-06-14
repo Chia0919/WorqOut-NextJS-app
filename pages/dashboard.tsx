@@ -1,18 +1,17 @@
 import {
+  Card,
+  Grid,
+  Typography,
   useMediaQuery,
   useTheme,
-  Grid,
-  Card,
-  Typography,
 } from '@material-ui/core'
 import Notes from '@material-ui/icons/Notes'
 import Timeline from '@material-ui/icons/Timeline'
 import React from 'react'
 import Footer from '../components/footer/Footer'
 import Layout from '../components/layout/layout'
-import { EmptyMsg } from '../components/message/EmptyMsg'
-import { Wrapper } from '../components/wrapper/wrapper'
 import useStyles from '../components/styles/useStyles'
+import { Wrapper } from '../components/wrapper/wrapper'
 
 export default function Dashboard() {
   const theme = useTheme()
@@ -20,7 +19,6 @@ export default function Dashboard() {
     defaultMatches: true,
   })
   const classes = useStyles({})
-
   return (
     <Layout module="Dashboard">
       <Wrapper>
@@ -76,7 +74,6 @@ export default function Dashboard() {
             </Grid> */}
           </Grid>
         </div>
-        {/* <EmptyMsg title={'Coming Soon'} /> */}
         {isDesktop === false ? <Footer /> : null}
       </Wrapper>
     </Layout>

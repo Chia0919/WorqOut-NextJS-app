@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -17,13 +17,19 @@ import logo from '../assets/images/WorqOut.png'
 // import loginSVG from '../assets/images/login.svg'
 import Layout from '../components/layout/layout'
 import { useRouter } from 'next/router'
+import { observer, inject } from 'mobx-react'
+import { getSnapshot } from 'mobx-state-tree'
+import { initializeStore } from '../store'
 
-export default function Login() {
+const Login = (props: any) => {
   const classes = useStyles({})
   const router = useRouter()
+  const [username, setUsername] = useState('')
+  const { store } = props
   const handleRedirect = () => {
     router.push('/dashboard')
   }
+  console.log('user', username)
   return (
     <Grid container component="main" className={classes.root}>
       <Head>
@@ -44,6 +50,8 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
+              value={username}
+              onChange={e => setUsername(e.target.value)}
               id="email"
               label="Email Address"
               name="email"
@@ -72,7 +80,7 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={handleRedirect}
+              onClick={() => handleRedirect()}
             >
               Sign In
             </Button>
@@ -100,3 +108,5 @@ export default function Login() {
     </Grid>
   )
 }
+
+export default Login
