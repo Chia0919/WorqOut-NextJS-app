@@ -152,7 +152,10 @@ function AddWorkoutForm() {
     <Layout module="Workouts">
       <form onSubmit={handleSubmit(onSubmit)} id="submit-form">
         <Wrapper>
-          <FormWrapper header="Add Plan" onclick={() => alert('back')}>
+          <FormWrapper
+            header="Add Plan"
+            onclick={() => router.push('/workout')}
+          >
             <Grid container justify="flex-start">
               <Grid item xs={12} md={3}>
                 <Card variant="outlined" className={classes.card}>

@@ -1,9 +1,13 @@
 import gql from 'graphql-tag'
 
 export const GET_WORKOUT_PLAN = gql`
-  query getWorkPlan($id: String) {
-    getWorkPlan(id: $id) {
+  query getWorkoutPlan($id: String) {
+    getWorkoutPlan(id: $id) {
       id
+      createdTs
+      createdBy
+      modTs
+      modBy
       workoutName
       workoutNote
       days

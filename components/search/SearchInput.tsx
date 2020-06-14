@@ -1,10 +1,10 @@
 import InputBase from '@material-ui/core/InputBase'
 import { createStyles, fade, makeStyles, Theme } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
-import React from 'react'
+import React, { useState } from 'react'
 import Fuse from 'fuse.js'
 
-const useStyles = makeStyles((theme: Theme) =>
+export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     search: {
       marginTop: '12px',
@@ -72,22 +72,32 @@ export default function SearchInput(props) {
         }}
         inputProps={{ 'aria-label': 'search' }}
         onChange={e => {
-          const options = {
-            shouldSort: true,
-            findAllMatches: true,
-            threshold: 0.2,
-            location: 0,
-            distance: 100,
-            maxPatternLength: 32,
-            minMatchCharLength: 1,
-            keys: fusekeys,
+          if (fusejs) {
+            const options = {
+              shouldSort: true,
+              findAllMatches: true,
+              threshold: 0.2,
+              location: 0,
+              distance: 100,
+              maxPatternLength: 32,
+              minMatchCharLength: 1,
+              keys: fusekeys,
+            }
+
+            const fuse = new Fuse(graphqlQuery, options)
+
+            const result = fuse.search(e.target.value)
+
+            setTextSearch(result)
+          } else {
+            const testSearch = graphqlQuery.filter(v => {
+              return (v?.name)
+                .toLowerCase()
+                .includes(e.target.value.toLowerCase())
+            })
+
+            setTextSearch(testSearch)
           }
-
-          const fuse = new Fuse(graphqlQuery, options)
-
-          const result = fuse.search(e.target.value)
-
-          setTextSearch(result)
           setSearch(e.target.value)
         }}
       />

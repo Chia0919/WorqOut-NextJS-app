@@ -88,5 +88,9 @@ const useStyles = makeStyles(theme => ({
     // marginTop: '-40px',
     marginTop: '10px',
   },
+  colorText: {
+    fontSize: '12px',
+    color: '#5271ff',
+  },
 }))
 export default useStyles

@@ -160,7 +160,7 @@ export default function Layout({ children, window, module }: LayoutProps) {
   const MenuList: any = [
     { label: 'Dasboard', path: '/dashboard', icon: <Dashboard /> },
     { label: 'Workouts', path: '/workout', icon: <FitnessCenter /> },
-    { label: 'Food Recipes', path: '/recipe', icon: <RestaurantMenu /> },
+    { label: 'Food Nutrition', path: '/nutrition', icon: <RestaurantMenu /> },
   ]
   const drawer = (
     <div>

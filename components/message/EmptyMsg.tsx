@@ -2,7 +2,7 @@
 import { Typography } from '@material-ui/core'
 import { createStyles, Theme } from '@material-ui/core/styles'
 import makeStyles from '@material-ui/styles/makeStyles'
-// import NoRecord from "../../assets/images/comingsoon.svg";
+import NoRecord from '../../assets/images/comingsoon.svg'
 import React from 'react'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +36,7 @@ export function EmptyMsg(props: props) {
   const { title, subtitle } = props
   return (
     <div className={classes.root} style={{ textAlign: 'center' }}>
-      {/* <img src={NoRecord} alt="img" className={classes.vector} /> */}
+      <img src={NoRecord} alt="img" className={classes.vector} />
       <Typography
         variant="subtitle1"
         color="textPrimary"

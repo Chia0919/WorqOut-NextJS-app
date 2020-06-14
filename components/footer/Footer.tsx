@@ -37,9 +37,9 @@ export default function Footer() {
       path: '/workout',
     },
     {
-      label: 'Recipes',
+      label: 'Nutrition',
       icon: <RestaurantMenu />,
-      path: '/recipe',
+      path: '/nutrition',
     },
     {
       label: 'Profile',

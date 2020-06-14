@@ -1,36 +1,35 @@
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useMutation, useQuery } from '@apollo/react-hooks'
 import {
   Card,
   Fab,
   Grid,
   List,
-  Typography,
+  Menu,
+  MenuItem,
   useMediaQuery,
   useTheme,
-  MenuItem,
-  Menu,
 } from '@material-ui/core'
 import Add from '@material-ui/icons/Add'
 import Link from 'next/link'
-import React, { useState, useRef } from 'react'
+import { useRouter } from 'next/router'
+import React, { useState } from 'react'
+import ActionDialog from '../components/dialog/ActionDialog'
 import Footer from '../components/footer/Footer'
 import Layout from '../components/layout/layout'
 import WorkoutListItem from '../components/listItem/WorkoutListItem'
+import { EmptyMsg } from '../components/message/EmptyMsg'
 import SearchInput from '../components/search/SearchInput'
 import useStyles from '../components/styles/useStyles'
 import { Wrapper } from '../components/wrapper/wrapper'
-import { GET_WORKOUT_PLAN, DELETE_WORKOUT_PLAN } from '../graphql/workoutPlan'
-import { withApollo } from '../lib/apollo'
+import { DELETE_WORKOUT_PLAN, GET_WORKOUT_PLAN } from '../graphql/workoutPlan'
 import { useMenuOption } from '../helpers/hooks/useMenuOption'
-import ActionDialog from '../components/dialog/ActionDialog'
-import { useRouter } from 'next/router'
-import { EmptyMsg } from '../components/message/EmptyMsg'
+import { withApollo } from '../lib/apollo'
 
 function Workout() {
   const classes = useStyles({})
   const router = useRouter()
-  const theme = useTheme()
   const [open, setOpen] = useState(false)
+  const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'), {
     defaultMatches: true,
   })
@@ -85,13 +84,12 @@ function Workout() {
   return (
     <Layout module="Workouts Plan">
       <Wrapper>
-        {/* <div className={classes.workout}></div> */}
         <Grid container justify="flex-start" className={classes.gridCard}>
           <Grid item xs={12} md={3} lg={3}>
             <Card variant="outlined" className={classes.card}>
               {/* <Typography variant="h6">Workouts</Typography> */}
               <SearchInput
-                graphqlQuery={data?.getWorkPlan}
+                graphqlQuery={data?.getWorkoutPlan}
                 setTextSearch={setTextSerach}
                 search={searchValue}
                 setSearch={setSearchValue}
@@ -101,8 +99,8 @@ function Workout() {
           </Grid>
           <Grid item xs={12} md={9} lg={9}>
             <List disablePadding>
-              {data?.getWorkPlan?.length === 0 ||
-              data?.getWorkPlan === undefined ? (
+              {data?.getWorkoutPlan?.length === 0 ||
+              data?.getWorkoutPlan === undefined ? (
                 <Card variant="outlined" className={classes.card}>
                   <EmptyMsg
                     title="Build your personalized workout plan"
@@ -112,14 +110,14 @@ function Workout() {
               ) : null}
               {search === undefined || search.length === 0 ? (
                 <>
-                  {data?.getWorkPlan.map((v: any, index: any) => (
+                  {data?.getWorkoutPlan.map((v: any, index: any) => (
                     <>
                       <WorkoutListItem
                         key={index}
-                        title={v.workoutName}
+                        title={v?.workoutName}
                         total={`Exercises: ${v.exercise?.length}`}
-                        subtitle={v.workoutNote}
-                        days={v.days}
+                        subtitle={v?.workoutNote}
+                        days={v?.days}
                         onclick={(e: React.MouseEvent<HTMLButtonElement>) =>
                           handleClick(e, v.id, index)
                         }
@@ -133,12 +131,12 @@ function Workout() {
                     <>
                       <WorkoutListItem
                         key={index}
-                        title={v.item.workoutName}
-                        total={`Exercises: ${v.item.exercise?.length}`}
-                        subtitle={v.item.workoutNote}
-                        days={v.item.days}
+                        title={v.item?.workoutName}
+                        total={`Exercises: ${v.item?.exercise?.length}`}
+                        subtitle={v.item?.workoutNote}
+                        days={v.item?.days}
                         onclick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                          handleClick(e, v.item.id, index)
+                          handleClick(e, v.item?.id, index)
                         }
                       />
                     </>
@@ -158,7 +156,7 @@ function Workout() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={() => router.push(`/workout/${v.id}`)}>
+              <MenuItem onClick={() => router.push(`/workout/${menu.id}`)}>
                 View
               </MenuItem>
               <MenuItem>Edit</MenuItem>
