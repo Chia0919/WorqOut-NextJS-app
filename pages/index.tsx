@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 import useStyles from '../components/styles/useStyles'
 import logo from '../assets/images/WorqOut.png'
-// import loginSVG from '../assets/images/login.svg'
+import loginSVG from '../assets/images/login.svg'
 import Layout from '../components/layout/layout'
 import { useRouter } from 'next/router'
 import { observer, inject } from 'mobx-react'
@@ -102,7 +102,7 @@ const Login = (props: any) => {
       </Grid>
       <Grid item xs={false} sm={false} md={6} className={classes.image}>
         <div className={classes.svgWrapper}>
-          {/* <img src={loginSVG} alt="svg" className={classes.svg} /> */}
+          <img src={loginSVG} alt="svg" className={classes.svg} />
         </div>
       </Grid>
     </Grid>

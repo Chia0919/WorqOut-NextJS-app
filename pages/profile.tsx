@@ -312,7 +312,7 @@ function Profile(props) {
                                     color="primary"
                                     style={{ display: 'flex' }}
                                   >
-                                    {convertToMonth(parseInt(v.date))}
+                                    {convertToMonth(v.date)}
                                     <Typography
                                       variant="h6"
                                       color="secondary"
@@ -377,9 +377,9 @@ function Profile(props) {
                                   label="Date"
                                   control={contr}
                                   disableToolbar
-                                  defaultValue={parseInt(
+                                  defaultValue={
                                     bodyWeightData?.getBodyWeight[0]?.date
-                                  )}
+                                  }
                                   variant="inline"
                                   fullWidth
                                   format="MM/dd/yyyy"
