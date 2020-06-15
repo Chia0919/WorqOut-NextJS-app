@@ -93,6 +93,7 @@ function Workout() {
                 setTextSearch={setTextSerach}
                 search={searchValue}
                 setSearch={setSearchValue}
+                fusejs={true}
                 fusekeys={['days', 'workoutName', 'exercise']}
               />
             </Card>
